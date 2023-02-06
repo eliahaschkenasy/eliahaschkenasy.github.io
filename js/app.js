@@ -5,7 +5,7 @@ const intialAmount = document.getElementById("initialamount");
 const years = document.getElementById("years");
 const rates = document.getElementById("rates");
 const compound = document.getElementById("compound");
-const contrib = document.getElementById("contrib");
+const contribution = document.getElementById("contrib");
 
 //Messge
 const message = document.getElementById("message");
@@ -28,14 +28,13 @@ function calculateGrowth(e) {
         const period = parseInt(years.value);
         const interest = parseInt(rates.value);
         const comp = parseInt(compound.value);
-        const contrib = parseInt(contrib.value);
+        const contrib = parseInt(contribution.value);
 
         for(let i = 1; i <= period; i++) {
-            initial += contrib;
             const final = (initial * Math.pow(1 + ((interest / 100) / comp), comp * i));
-            data.push(toDecimal(final, 2));
+            data.push(toDecimal(final + contrib, 2));
             labels.push("Year " + i);
-            growth = toDecimal(final, 2);
+            growth = toDecimal(final + contrib, 2);
         }
         //
         message.innerText = `You will have this amount ${growth} after ${period} years`;
