@@ -5,6 +5,7 @@ const intialAmount = document.getElementById("initialamount");
 const years = document.getElementById("years");
 const rates = document.getElementById("rates");
 const compound = document.getElementById("compound");
+const contrib = document.getElementById("contrib");
 
 //Messge
 const message = document.getElementById("message");
@@ -29,7 +30,7 @@ function calculateGrowth(e) {
         const comp = parseInt(compound.value);
 
         for(let i = 1; i <= period; i++) {
-            const final = initial * Math.pow(1 + ((interest / 100) / comp), comp * i);
+            const final = initial * Math.pow(1 + ((interest / 100) / comp), comp * i) + contrib;
             data.push(toDecimal(final, 2));
             labels.push("Year " + i);
             growth = toDecimal(final, 2);
