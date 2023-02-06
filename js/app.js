@@ -28,9 +28,11 @@ function calculateGrowth(e) {
         const period = parseInt(years.value);
         const interest = parseInt(rates.value);
         const comp = parseInt(compound.value);
+        const contrib = parseInt(contrib.value);
 
         for(let i = 1; i <= period; i++) {
-            const final = initial * Math.pow(1 + ((interest / 100) / comp), comp * i) + contrib;
+            initial += contrib;
+            const final = (initial * Math.pow(1 + ((interest / 100) / comp), comp * i));
             data.push(toDecimal(final, 2));
             labels.push("Year " + i);
             growth = toDecimal(final, 2);
