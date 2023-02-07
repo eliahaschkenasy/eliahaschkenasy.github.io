@@ -12,7 +12,9 @@ calculateButton.addEventListener("click", ()=>{
     BMI = toDecimal(weight/(height**2), 2); 
     result.innerText = BMI;
 
-    if(BMI < 18.5){
+    if(isNaN(BMI)) {
+        statement.innerText = "Input Error";
+    }else if(BMI < 18.5){
         statement.innerText = "Your BMI falls within the underweight range";    
     }else if((BMI > 18.5) && (BMI < 24.9)){
         statement.innerText = "Your BMI falls within the normal or healthy weight range";
