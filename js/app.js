@@ -32,11 +32,10 @@ function calculateGrowth(e) {
 
         for(let i = 1; i <= period; i++) {
             const final = (initial * Math.pow(1 + ((interest / 100) / comp), comp * i));
-            data.push(toDecimal(final + contrib, 2));
+            data.push(toDecimal(final, 2));
             labels.push("Year " + i);
-            growth = toDecimal(final + contrib, 2);
+            growth = toDecimal(final, 2);
         }
-        //
         message.innerText = `You will have this amount ${growth} after ${period} years`;
         drawGraph();
     } catch (error) {
