@@ -21,7 +21,6 @@ function calculateGrowth(e) {
     e.preventDefault();
     data.length = 0;
     labels.length = 0;
-    let growth = 0;
     try {
         const initial = parseInt(intialAmount.value);
         const period = parseInt(years.value);
