@@ -4,7 +4,6 @@ let line = new Chart(context, {});
 const intialAmount = document.getElementById("initialamount");
 const years = document.getElementById("years");
 const rates = document.getElementById("rates");
-const compound = document.getElementById("compound");
 const contribution = document.getElementById("contrib");
 
 //Messge
@@ -27,18 +26,17 @@ function calculateGrowth(e) {
         const initial = parseInt(intialAmount.value);
         const period = parseInt(years.value);
         const interest = parseInt(rates.value);
-        const comp = parseInt(compound.value);
         const contrib = parseInt(contribution.value);
-
+        
+        let final_calc = initial;
         for(let i = 1; i <= period; i++) {
-            const final = (initial * Math.pow(1 + ((interest / 100) / comp), comp * i));
-            data.push(toDecimal(final, 2));
+            final_calc *= 1 + ((interest / 100));
+            final_calc += contrib;
+            data.push(toDecimal(final_calc, 2));
             labels.push("Year " + i);
-            growth = toDecimal(final, 2);
         }
 
-
-        message.innerText = `You will have this amount ${growth} after ${period} years`;
+        message.innerText = `You will have this amount ${toDecimal(final_calc, 2)} after ${period} years`;
         drawGraph();
     } catch (error) {
         console.error(error);
