@@ -31,7 +31,7 @@ function calculateGrowth(e) {
         let final_calc = initial;
         for(let i = 1; i <= period; i++) {
             final_calc *= 1 + ((interest / 100));
-            final_calc += contrib;
+            final_calc += contrib * 12;
             data.push(toDecimal(final_calc, 2));
             labels.push("Year " + i);
         }
