@@ -38,7 +38,6 @@ function calculateGrowth(e) {
         }
 
 
->>>>>>> 0e6ae6948ac5547001a32f0aa00fbcc1343893f5
         message.innerText = `You will have this amount ${growth} after ${period} years`;
         drawGraph();
     } catch (error) {
