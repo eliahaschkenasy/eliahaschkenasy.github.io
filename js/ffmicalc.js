@@ -18,11 +18,11 @@ calculateButton.addEventListener("click", ()=>{
 
     if(isNaN(FFMI)) {
         statement.innerText = "Input Error";
-    }else if(BMI < 18.5){
+    }else if(FFMI < 18.5){
         statement.innerText = "Below Average";    
-    }else if((BMI > 18.5) && (BMI < 20)){
+    }else if((FFMI > 18.5) && (FFMI < 20)){
         statement.innerText = "Average";
-    }else if((BMI > 20) && (BMI < 22 )){
+    }else if((FFMI > 20) && (FFMI < 22 )){
         statement.innerText = "Above Average";
     }else{
         statement.innerText = "Excellent";
