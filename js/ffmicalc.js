@@ -14,18 +14,18 @@ calculateButton.addEventListener("click", ()=>{
     // bodyFat = weight × (fatPercentage / 100)
     fatFreeMass = weight * (1 - (fatPercentage/ 100)); 
     FFMI = fatFreeMass/ (height**2);
-    result.innerText = BMI;
+    result.innerText = FFMI;
 
-    if(isNaN(BMI)) {
+    if(isNaN(FFMI)) {
         statement.innerText = "Input Error";
     }else if(BMI < 18.5){
-        statement.innerText = "Your BMI falls within the underweight range";    
-    }else if((BMI > 18.5) && (BMI < 24.9)){
-        statement.innerText = "Your BMI falls within the normal or healthy weight range";
-    }else if((BMI > 25) && (BMI < 29.9 )){
-        statement.innerText = "Your BMI falls within the overweight range";
+        statement.innerText = "Below Average";    
+    }else if((BMI > 18.5) && (BMI < 20)){
+        statement.innerText = "Average";
+    }else if((BMI > 20) && (BMI < 22 )){
+        statement.innerText = "Above Average";
     }else{
-        statement.innerText = "Your BMI falls within the obese range";
+        statement.innerText = "Excellent";
     }
 });
 function toDecimal(value, decimals) {
