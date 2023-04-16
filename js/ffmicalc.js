@@ -1,3 +1,4 @@
+import toDecimal from bmicalc.js
 var heightInput = document.querySelector(".height-input-field");
 var weightInput = document.querySelector(".weight-input-field");
 var fatPercentageInput = document.querySelector(".fat-percentage-input-field")
@@ -7,15 +8,16 @@ var statement = document.querySelector(".result-statement");
 var FFMI, height, weight, fatPercentage;
 
 calculateButton.addEventListener("click", ()=>{
+
     
     height = heightInput.value;
     weight = weightInput.value;
     fatPercentage = fatPercentageInput.value;
-    // bodyFat = weight × (fatPercentage / 100)
     fatFreeMass = weight * (1 - (fatPercentage/ 100)); 
-    FFMI = fatFreeMass/ (height**2);
+    FFMI = toDecimal(fatFreeMass/ (height**2));
     result.innerText = FFMI;
 
+    
     if(isNaN(FFMI)) {
         statement.innerText = "Input Error";
     }else if(FFMI < 18.5){
